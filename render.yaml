@@ -5,5 +5,5 @@ services:
     plan: free  # Ou "starter", selon ton choix
     repo: https://github.com/karimbsaid/e-commerce-app
     branch: main  # Branche utilisée pour le déploiement
-    dockerCommand: "docker compose -f docker-compose.prod.yml up --build"
+    dockerCommand: "docker compose -f docker-compose.yml up --build"
     autoDeploy: true
