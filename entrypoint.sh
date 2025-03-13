@@ -1,10 +1,12 @@
 #!/bin/sh
+
 echo "Waiting for PostgreSQL to start..."
-until psql -h "$DB_HOST" -U "$DB_USERNAME" -d "$DB_DATABASE" -c "SELECT 1;" > /dev/null 2>&1; do
+until PGPASSWORD="$DB_PASSWORD" psql -h "$DB_HOST" -U "$DB_USERNAME" -d "$DB_DATABASE" -c "SELECT 1;" > /dev/null 2>&1; do
     sleep 3
 done
 
 echo "PostgreSQL is ready. Running migrations..."
+
 
 # Run migrations
 php artisan migrate --force
